@@ -1,0 +1,12 @@
+<launch>
+        <node pkg="dji_sdk" type="dji_sdk_node" name="dji_sdk" output="screen">
+                <!-- node parameters -->
+                <param name="serial_name" type="string" value="/dev/ttyUSB0"/>
+                <param name="baud_rate" type="int" value="230400"/>
+                <param name="app_id" type="int" value="1039846"/>
+                <param name="app_version" type="int" value="1"/>
+                <param name="app_bundle_id" type="string" value="Not required in this SDK version"/>
+                <param name="enc_key" type="string" value="f5305ea79164770d8872c2383ff62aab57877ff8668267110411e726d2700161"/>
+                <param name="groundstation_enable" type="int" value="1"/>
+        </node>
+</launch>
