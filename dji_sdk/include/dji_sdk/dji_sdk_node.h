@@ -108,6 +108,24 @@ private:
 
     }
 
+// subscriptions to command like gimbal commands.
+
+    ros::Subscriber gimbal_speed_command_sub;    
+
+    void gimbal_commanded_speed_cb (const geometry_msgs::Vector3 & vec) {
+      DJI::onboardSDK::GimbalSpeedData gimbal_speed;
+      gimbal_speed.yaw = vec.x*10.0;
+      gimbal_speed.roll = vec.y*10.0;
+      gimbal_speed.pitch = vec.z*10.0;
+      gimbal_speed.reserved = 0x80; //little endian. enable
+
+      rosAdapter->camera->setGimbalSpeed(&gimbal_speed);
+    };
+
+    void init_subs(ros::NodeHandle& nh) {
+      gimbal_speed_command_sub = nh.subscribe("dji_sdk/gimbal_commanded_speed", 1, &DJISDKNode::gimbal_commanded_speed_cb, this);
+    }
+
 //Services:
     ros::ServiceServer activation_service;
     ros::ServiceServer attitude_control_service;
