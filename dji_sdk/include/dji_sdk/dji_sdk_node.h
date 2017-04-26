@@ -119,7 +119,11 @@ private:
       gimbal_speed.pitch = vec.z*10.0;
       gimbal_speed.reserved = 0x80; //little endian. enable
 
+      ros::Time t0 = ros::Time::now();
       rosAdapter->camera->setGimbalSpeed(&gimbal_speed);
+      ros::Time t1 = ros::Time::now();
+      ros::Duration d = t1-t0;
+      ROS_ERROR ("TIME TO CALL setGimbalSpeed: %f", d.toSec ());
     };
 
     void init_subs(ros::NodeHandle& nh) {
