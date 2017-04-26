@@ -127,7 +127,7 @@ private:
     };
 
     void init_subs(ros::NodeHandle& nh) {
-      gimbal_speed_command_sub = nh.subscribe("dji_sdk/gimbal_commanded_speed", 1, &DJISDKNode::gimbal_commanded_speed_cb, this);
+      gimbal_speed_command_sub = nh.subscribe("dji_sdk/gimbal_commanded_speed", 100, &DJISDKNode::gimbal_commanded_speed_cb, this);
     }
 
 //Services:
