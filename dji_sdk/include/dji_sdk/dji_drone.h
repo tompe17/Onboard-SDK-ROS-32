@@ -1085,7 +1085,9 @@ public:
 	{
 		dji_sdk::MissionWpUpload mission_waypoint_task;
 		mission_waypoint_task.request.waypoint_task = waypoint_task;
-		return mission_wp_upload_service.call(mission_waypoint_task)&&mission_waypoint_task.response.result;
+                bool res = mission_wp_upload_service.call(mission_waypoint_task);
+                std::cerr << "WAYPOINTUPLOAD result: " << res << " - " <<  mission_waypoint_task.response.result << std::endl;
+		return res&&mission_waypoint_task.response.result;
 	}
 
 	dji_sdk::MissionWaypointTask mission_waypoint_download()
