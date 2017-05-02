@@ -197,7 +197,7 @@ bool DJISDKMission::mission_wp_upload_callback(dji_sdk::MissionWpUpload::Request
 	new_task.RCLostAction = waypoint_task.action_on_rc_lost;
 	new_task.gimbalPitch = waypoint_task.gimbal_pitch_mode;
         for (unsigned int i=0; i<15; i++) {
-          reserved[i] = 0;
+          new_task.reserved[i] = 0;
         }
 
 	rosAdapter->waypoint->init(&new_task);
