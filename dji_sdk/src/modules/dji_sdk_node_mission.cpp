@@ -45,6 +45,9 @@ void DJISDKMission::mission_event_callback(uint8_t *buf, uint8_t len)
 
 bool DJISDKMission::mission_start_callback(dji_sdk::MissionStart::Request& request, dji_sdk::MissionStart::Response& response)
 {
+
+  response.result = true;
+  
 	switch(current_type)
 	{	
 		case MissionType::WAYPOINT:
@@ -95,6 +98,8 @@ bool DJISDKMission::mission_start_callback(dji_sdk::MissionStart::Request& reque
 bool DJISDKMission::mission_pause_callback(dji_sdk::MissionPause::Request& request, dji_sdk::MissionPause::Response& response)
 {
 
+  response.result = true;  
+
 	switch(current_type)
 	{	
 		//different cmd id
@@ -122,6 +127,8 @@ bool DJISDKMission::mission_pause_callback(dji_sdk::MissionPause::Request& reque
 
 bool DJISDKMission::mission_cancel_callback(dji_sdk::MissionCancel::Request& request, dji_sdk::MissionCancel::Response& response)
 {
+
+    response.result = true;
 
 	switch(current_type)
 	{	
