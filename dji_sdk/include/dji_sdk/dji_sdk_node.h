@@ -123,7 +123,8 @@ private:
       rosAdapter->camera->setGimbalSpeed(&gimbal_speed);
       ros::Time t1 = ros::Time::now();
       ros::Duration d = t1-t0;
-      ROS_ERROR ("TIME TO CALL setGimbalSpeed: %f", d.toSec ());
+      ROS_ERROR ("TIME TO CALL setGimbalSpeed: %f - %d %d %d", d.toSec (), gimbal_speed.yaw,
+                 gimbal_speed.roll, gimbal_speed.pitch);
     };
 
     void init_subs(ros::NodeHandle& nh) {

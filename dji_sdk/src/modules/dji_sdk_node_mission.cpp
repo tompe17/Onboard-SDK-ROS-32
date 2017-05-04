@@ -229,6 +229,8 @@ bool DJISDKMission::mission_wp_upload_callback(dji_sdk::MissionWpUpload::Request
 		i+=1;
 		sleep(2);
 	}
+
+        response.result = true;
 	
 	current_type = MissionType::WAYPOINT;
 	printf("current_type -> WP\n");
