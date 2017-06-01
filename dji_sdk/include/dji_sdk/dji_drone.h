@@ -474,7 +474,8 @@ public:
 		local_position_navigation_action_client(nh, "dji_sdk/local_position_navigation_action", true),
 		global_position_navigation_action_client(nh, "dji_sdk/global_position_navigation_action", true),
 		waypoint_navigation_action_client(nh, "dji_sdk/waypoint_navigation_action", true)
-	{
+                  {
+                    local_position.ts = 0;
 		activation_service = nh.serviceClient<dji_sdk::Activation>("dji_sdk/activation");
 	    	attitude_control_service = nh.serviceClient<dji_sdk::AttitudeControl>("dji_sdk/attitude_control");
 	    	camera_action_control_service = nh.serviceClient<dji_sdk::CameraActionControl>("dji_sdk/camera_action_control");
