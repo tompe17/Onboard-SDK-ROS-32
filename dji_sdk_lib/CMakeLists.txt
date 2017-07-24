@@ -62,3 +62,8 @@ install(TARGETS dji_sdk_lib
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
+
+set(cpackconfig "/opt/lrs_wara/src/lrs_wara/cpackconfig.cmake")
+if (EXISTS ${cpackconfig})
+  include(${cpackconfig})
+endif()

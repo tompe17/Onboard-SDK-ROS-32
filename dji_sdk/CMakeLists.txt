@@ -291,4 +291,7 @@ install(DIRECTORY launch
 #   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 # )
 
-
+set(cpackconfig "/opt/lrs_wara/src/lrs_wara/cpackconfig.cmake")
+if (EXISTS ${cpackconfig})
+  include(${cpackconfig})
+endif()
