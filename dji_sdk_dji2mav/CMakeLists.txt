@@ -217,5 +217,6 @@ install(DIRECTORY launch
 
 set(cpackconfig "/opt/lrs_wara/src/lrs_wara/cpackconfig.cmake")
 if (EXISTS ${cpackconfig})
+  set(CPACK_PACKAGE_NAME "dji-sdk-dji2mav")        
   include(${cpackconfig})
 endif()

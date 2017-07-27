@@ -65,5 +65,6 @@ install(TARGETS dji_sdk_lib
 
 set(cpackconfig "/opt/lrs_wara/src/lrs_wara/cpackconfig.cmake")
 if (EXISTS ${cpackconfig})
+  set(CPACK_PACKAGE_NAME "dji-sdk-lib")        
   include(${cpackconfig})
 endif()
